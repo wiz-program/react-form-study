@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import InputForm from './form/InputForm'
 import ConfirmForm from './form/ConfirmForm'
+import './form/Form.css'
 
 const schema  = z.object({
   name: z.string().min(1, '名前は必須です').min(3, '名前は3文字以上で入力してください'),
