@@ -1,6 +1,15 @@
 ## 概要
 React Hook Form + Zod を使ったフォーム実装の学習コードです。
 
+| 項目 | URL |
+|---|---|
+| フロントエンド（このリポジトリ） | https://github.com/wiz-program/react-form-study |
+| バックエンド（Python） | https://github.com/wiz-program/python-form-study |
+| デプロイ先（GitHub Pages） | https://wiz-program.github.io/react-form-study/ |
+
+API 連携の相手となる Python バックエンドは [python-form-study](https://github.com/wiz-program/python-form-study) を参照してください。  
+フロントエンドは GitHub Actions により `main` ブランチへの push 時に上記 GitHub Pages URL へ自動デプロイされます。
+
 実務で使用されている Pug + jQuery によるレガシーなフォーム実装を  
 React + TypeScript に書き換えることを想定して作成しています。
 
