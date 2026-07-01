@@ -1,11 +1,11 @@
 import { useFormContext } from 'react-hook-form'
-import type { FormValues } from '../UseFormContext'
+import type { FormValues, FormStep } from '../UseFormContext'
 
-function InputForm({ setIsConfirm }: { setIsConfirm: (isConfirm: boolean) => void }) {
+function InputForm({ setStep }: { setStep: (step: FormStep) => void }) {
   const { register, handleSubmit, formState: { errors } } = useFormContext<FormValues>();
 
   const onSubmit = () => {
-    setIsConfirm(true);
+    setStep('confirm');
   }
 
   return (

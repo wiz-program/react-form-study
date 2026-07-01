@@ -200,6 +200,25 @@
   word-break: break-word;
 }
 
+.complete-body {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.complete-icon {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+  line-height: 1;
+  color: #16a34a;
+}
+
+.complete-message {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #0f172a;
+}
+
 @media (min-width: 640px) {
   .form-page {
     padding: 2rem 1.5rem;

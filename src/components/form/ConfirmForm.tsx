@@ -1,23 +1,28 @@
 import axios from "axios";
 import { useFormContext } from 'react-hook-form'
-import type { FormValues } from '../UseFormContext'
+import type { FormValues, FormStep } from '../UseFormContext'
 
-function ConfirmForm({ setIsConfirm }: { setIsConfirm: (isConfirm: boolean) => void }) {
+function ConfirmForm({
+  setStep,
+  onComplete,
+}: {
+  setStep: (step: FormStep) => void;
+  onComplete: (message: string) => void;
+}) {
   const { getValues, handleSubmit, formState: { isSubmitting }, reset } = useFormContext<FormValues>();
 
   const formData = getValues();
 
   const sendToApi = async (data: FormValues) => {
     try {
-      await axios.post('https://jsonplaceholder.typicode.com/posts', data);
-      setIsConfirm(false);
-      console.log('データの送信に成功しました');
+      const { data: response } = await axios.post<{ message: string }>(
+        'https://python-form-study.onrender.com/api/v1/register-questionnaire',
+        data,
+      );
+      reset();
+      onComplete(response.message);
     } catch (error) {
       console.error('Error sending data to API:', error);
-      console.log('データの送信に失敗しました');
-    } finally {
-      reset();
-      console.log('データの送信が終了しました');
     }
   }
 
@@ -56,7 +61,7 @@ function ConfirmForm({ setIsConfirm }: { setIsConfirm: (isConfirm: boolean) => v
           <button
             type="button"
             className="form-button form-button--secondary"
-            onClick={() => setIsConfirm(false)}
+            onClick={() => setStep('input')}
             disabled={isSubmitting}
           >
             戻る
